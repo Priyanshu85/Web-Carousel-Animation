@@ -3,33 +3,34 @@ import "./App.css";
 
 function App() {
   var img1, img2, img3, img4, Heading, paragraph;
-  img1 = document.querySelector(".img1");
-  img2 = document.querySelector(".img2");
-  img3 = document.querySelector(".img3");
-  img4 = document.querySelector(".img4");
-  Heading = document.querySelector(".heading");
-  paragraph = document.querySelector(".para");
+  img1 = document.getElementsByClassName("img1");
+  img2 = document.getElementsByClassName("img2");
+  img3 = document.getElementsByClassName("img3");
+  img4 = document.getElementsByClassName("img4");
+  Heading = document.getElementsByClassName("");
+  paragraph = document.getElementsByClassName("");
   var imagesPos = [img4, img1, img2, img3];
-  const imagesInfo = {
-    Image4: {
-      DefaulText: "Green box",
-      para: "This is the green box i can tell you the info about my life",
-    },
+  console.log(img1, img2, img3, img4);
+  // const imagesInfo = {
+  //   Image4: {
+  //     DefaulText: "Green box",
+  //     para: "This is the green box i can tell you the info about my life",
+  //   },
 
-    Image1: {
-      DefaulText: "Red box",
-      para: "This is the red box i can tell you the info about my life",
-    },
+  //   Image1: {
+  //     DefaulText: "Red box",
+  //     para: "This is the red box i can tell you the info about my life",
+  //   },
 
-    Image2: {
-      DefaulText: "black box",
-      para: "This is the black box i can tell you the info about my life",
-    },
-    Image3: {
-      DefaulText: "Yellow box",
-      para: "This is the yellow box i can tell you the info about my life",
-    },
-  };
+  //   Image2: {
+  //     DefaulText: "black box",
+  //     para: "This is the black box i can tell you the info about my life",
+  //   },
+  //   Image3: {
+  //     DefaulText: "Yellow box",
+  //     para: "This is the yellow box i can tell you the info about my life",
+  //   },
+  // };
 
   const moveDivBackward = () => {
     gsap.fromTo(
@@ -172,12 +173,8 @@ function App() {
 
   const moveForward = () => {
     moveDivForward();
-
     var curr = imagesPos.pop();
     imagesPos.unshift(curr);
-    defaultText();
-    paraText();
-
     console.log(imagesPos);
   };
 
@@ -185,20 +182,18 @@ function App() {
     moveDivBackward();
     var curr = imagesPos.shift();
     imagesPos.push(curr);
-    defaultText();
-    paraText();
     console.log(imagesPos);
   };
 
-  const defaultText = () => {
-    console.log(imagesPos[0]);
-    Heading.innerText = imagesInfo.imagesPos[0].DefaulText;
-  };
+  // const defaultText = () => {
+  //   console.log(imagesPos[0]);
+  //   Heading.innerText = imagesInfo.imagesPos[0].DefaulText;
+  // };
 
-  const paraText = () => {
-    console.log(imagesPos[0]);
-    paragraph.innerText = imagesInfo.imagesPos[0].para;
-  };
+  // const paraText = () => {
+  //   console.log(imagesPos[0]);
+  //   paragraph.innerText = imagesInfo.imagesPos[0].para;
+  // };
 
   return (
     <div className="App">
