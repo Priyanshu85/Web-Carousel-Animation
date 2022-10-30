@@ -1,36 +1,47 @@
+import { useState } from "react";
 import { gsap } from "gsap";
 import "./App.css";
 
+// MUI
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Rating from "@mui/material/Rating";
+
 function App() {
-  var img1, img2, img3, img4, Heading, paragraph;
-  img1 = document.getElementsByClassName("img1");
-  img2 = document.getElementsByClassName("img2");
-  img3 = document.getElementsByClassName("img3");
-  img4 = document.getElementsByClassName("img4");
-  Heading = document.getElementsByClassName("");
-  paragraph = document.getElementsByClassName("");
+  const [current, setCurrent] = useState(0);
+
+  var img1, img2, img3, img4;
+  img1 = document.getElementsByClassName("AnimiatedCarouselImageOne");
+  img2 = document.getElementsByClassName("AnimiatedCarouselImageTwo");
+  img3 = document.getElementsByClassName("AnimiatedCarouselImageThree");
+  img4 = document.getElementsByClassName("AnimiatedCarouselImageFour");
   var imagesPos = [img4, img1, img2, img3];
-  console.log(img1, img2, img3, img4);
-  // const imagesInfo = {
-  //   Image4: {
-  //     DefaulText: "Green box",
-  //     para: "This is the green box i can tell you the info about my life",
-  //   },
-
-  //   Image1: {
-  //     DefaulText: "Red box",
-  //     para: "This is the red box i can tell you the info about my life",
-  //   },
-
-  //   Image2: {
-  //     DefaulText: "black box",
-  //     para: "This is the black box i can tell you the info about my life",
-  //   },
-  //   Image3: {
-  //     DefaulText: "Yellow box",
-  //     para: "This is the yellow box i can tell you the info about my life",
-  //   },
-  // };
+  var content = [
+    {
+      title: "Australia Visitor Visa",
+      text: "This app is something that every teenager needs. I've been using this app for a while now, and not only does it give me a experience of using a debit card as a teenager, but also gives me idea about savings and many other useful things.",
+      name: "Lisa Maria",
+      rating: 5,
+    },
+    {
+      title: "USA Visitor Visa",
+      text: "FamPay has definitely made my children familiar and aware of their finances. Really happy how the app works, very easy and convenient to adapt. I really wish there was something like this during our time.",
+      name: "John Doe",
+      rating: 5,
+    },
+    {
+      title: "Canada Work Permit",
+      text: "lorem ipsum dolor sit amet previs",
+      name: "Laura Johnson",
+      rating: 4,
+    },
+    {
+      title: "USA Investor Visa",
+      text: "it's been a very convenient tool since. My son has his UPI ID and card without any bank account. He can use it to get his app trials and food ordering etc. He has started saving money through the streak!",
+      name: "Mary Jane",
+      rating: 4,
+    },
+  ];
 
   const moveDivBackward = () => {
     gsap.fromTo(
@@ -172,57 +183,55 @@ function App() {
   };
 
   const moveForward = () => {
+    setCurrent(Math.abs((current + 1) % 4));
     moveDivForward();
     var curr = imagesPos.pop();
     imagesPos.unshift(curr);
-    console.log(imagesPos);
   };
 
   const moveBackward = () => {
+    if (current === 0) setCurrent(3);
+    else setCurrent(Math.abs(current - 1));
     moveDivBackward();
     var curr = imagesPos.shift();
     imagesPos.push(curr);
-    console.log(imagesPos);
   };
 
-  // const defaultText = () => {
-  //   console.log(imagesPos[0]);
-  //   Heading.innerText = imagesInfo.imagesPos[0].DefaulText;
-  // };
-
-  // const paraText = () => {
-  //   console.log(imagesPos[0]);
-  //   paragraph.innerText = imagesInfo.imagesPos[0].para;
-  // };
-
   return (
-    <div className="App">
-      <button className="button" onClick={moveBackward}>
-        Left
-      </button>
-      <button className="button" onClick={moveForward}>
-        Right
-      </button>
-
-      <div className="main">
-        <div className="img1">img1</div>
-        <div className="img2">img2</div>
-        <div className="img3">img3</div>
-        <div className="img4">img4</div>
+    <div className="AnimatedCarousel">
+      <div className="AnimatedCarouselImgsContainer">
+        <div className="AnimiatedCarouselImgs">
+          <div className="AnimiatedCarouselImageOne">img1</div>
+          <div className="AnimiatedCarouselImageTwo">img2</div>
+          <div className="AnimiatedCarouselImageThree">img3</div>
+          <div className="AnimiatedCarouselImageFour">img4</div>
+        </div>
+        <div>
+          <ArrowBackIosIcon onClick={moveForward} />
+          <ArrowForwardIosIcon onClick={moveBackward} />
+        </div>
       </div>
 
-      <div>
-        <h1 className="heading">Default Text</h1>
-      </div>
-      <div>
-        <p className="para">
-          jdsiajfiaksdjiioaksdfioajsifoahsdoifajsdoifja
-          dfiasjdiafjsdiojafsdoijfaosijfosdjfsojosdjosd
-          dshfoiasdfiosadjfodsjfoasdjfoisdjfoisdjfoidjf
-        </p>
+      <div className="AnimatedCarouselContentContainer">
+        <div>
+          <Rating name="read-only" value={content[current].rating} readOnly />
+        </div>
+
+        <div>
+          <h1 className="AnimiatedCarouselHeading">{content[current].title}</h1>
+        </div>
+
+        <div>
+          <p>
+            <b>{content[current].name}</b>
+          </p>
+        </div>
+
+        <div>
+          <p className="AnimiatedCarouselText">{content[current].text}</p>
+        </div>
       </div>
     </div>
   );
 }
-
 export default App;

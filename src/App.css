@@ -1,54 +1,61 @@
-.App {
-  border: 1px solid red;
-  height: 100vh;
+.AnimatedCarousel {
+  /* border: 1px solid red; */
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AnimatedCarouselImgsContainer {
+  /* border: 1px solid purple; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.main {
-  border: solid 5px green;
-  width: 600px;
-  height: 400px;
+.AnimatedCarouselContentContainer {
+  /* border: 1px solid pink; */
+  height: 100%;
+  width: 40vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  position: relative;
+  margin: 0 5vw;
 }
 
-.img1,
-.img2,
-.img3,
-.img4 {
-  width: 200px;
-  height: 300px;
+.AnimiatedCarouselImgs {
+  /* border: 1px solid red; */
+  height: 70vh;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AnimiatedCarouselImageOne,
+.AnimiatedCarouselImageTwo,
+.AnimiatedCarouselImageThree,
+.AnimiatedCarouselImageFour {
+  width: 20vw;
+  height: 45vh;
   position: absolute;
   display: flex;
   border-radius: 10px;
-  transform: translateY(20%);
-}
-.img1 {
-  background-color: red;
-}
-.False2 {
-  right: 150px;
-  height: 250px;
-  margin-top: 20px;
 }
 
-.img2 {
+.AnimiatedCarouselImageOne {
+  background-color: red;
+}
+
+.AnimiatedCarouselImageTwo {
   background-color: black;
 }
 
-.img3 {
+.AnimiatedCarouselImageThree {
   background-color: yellow;
 }
-.False1 {
-  left: 150px;
-  height: 250px;
-  margin-top: 20px;
-}
 
-.img4 {
+.AnimiatedCarouselImageFour {
   background-color: green;
 }
