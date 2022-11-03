@@ -1,61 +1,103 @@
-.AnimatedCarousel {
-  /* border: 1px solid red; */
-  height: 80vh;
+.App {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background: #ffffff;
 }
 
-.AnimatedCarouselImgsContainer {
-  /* border: 1px solid purple; */
+.Container {
+  border: 3px solid #686868;
+  background: #fff;
+  box-shadow: #64646f33 0px 7px 29px 0px;
+  border-radius: 20px;
   display: flex;
-  flex-direction: column;
+  height: 40vh;
+  width: 45vw;
+  padding: 2vh 4vw 2vh 1vw;
+  cursor: pointer;
+}
+
+.ImgContainer {
+  margin: 0 1.5vw;
+  display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.AnimatedCarouselContentContainer {
-  /* border: 1px solid pink; */
   height: 100%;
-  width: 40vw;
+  width: 18vw;
+  border-radius: 20px;
+  transition: 0.2s all ease-in-out;
+}
+
+.ImgContainer:hover {
+  background: linear-gradient(270deg, #ffffff80 0%, #ffffff80 100%),
+    url("./assets//person.jpeg");
+}
+
+.CardImg {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 100%;
+  width: 17vw;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: 0.2s all ease-in-out;
+}
+
+.CardImg:hover {
+  transform: rotate(3deg);
+}
+
+.ContentContainer {
+  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 5vw;
+  background: linear-gradient(270deg, #ffffffe3 0%, #ffffffe3 100%),
+    url("./assets/approved.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.AnimiatedCarouselImgs {
-  /* border: 1px solid red; */
-  height: 70vh;
-  width: 30vw;
+.ContentHeading {
   display: flex;
+  padding: 1vh 1vw;
+  font-weight: 800;
+  font-size: 3vh;
+}
+
+.ContentBody {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding: 1vh 1vw;
 }
 
-.AnimiatedCarouselImageOne,
-.AnimiatedCarouselImageTwo,
-.AnimiatedCarouselImageThree,
-.AnimiatedCarouselImageFour {
-  width: 20vw;
-  height: 45vh;
-  position: absolute;
+.ContentBodyField {
   display: flex;
-  border-radius: 10px;
+  width: 100%;
+  margin: 1vh 0;
 }
 
-.AnimiatedCarouselImageOne {
-  background-color: red;
+.ContentBodyFieldTitle {
+  font-weight: 700;
 }
 
-.AnimiatedCarouselImageTwo {
-  background-color: black;
+.ContentBodyFieldText {
+  font-weight: 400;
 }
 
-.AnimiatedCarouselImageThree {
-  background-color: yellow;
+.ContentFlag {
+  padding: 6vh 0;
+  filter: saturate(90%);
 }
 
-.AnimiatedCarouselImageFour {
-  background-color: green;
+.ContentFlagImg {
+  height: 10vh;
+  transition: 0.1s ease-in-out all;
+}
+
+.ContentFlagImg:hover {
+  filter: saturate(85%);
 }
